@@ -7,6 +7,9 @@
 ## 자료구조
 
 - set은 list를 조회하는 것보다 빠른 조회 성능을 가진다.
+- ord()는 아스키 코드, chr() 숫자를 다시 문자로 97 = a
+- 입력을 리스트로 받는 방법은 list(map(int,input().split()))
+- 입력 빠르게 받는 방법은 import sys \n input = sys.stdin.readline
 
 ## 알고리즘
 
