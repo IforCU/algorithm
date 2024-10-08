@@ -16,7 +16,5 @@ for i in range(1, N+1):
         d[i] = d[i-1]
     else:
         d[i] = max(d[i-1], schedule[i][1] + d[i - schedule[i][0]])
-    
-    print(d)
 
 print(d[-1])
