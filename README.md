@@ -14,3 +14,23 @@
 ## 알고리즘
 
 - list에서 가장 빠르게 탐색하는 기본적인 방법은 이진 탐색 트리이다.
+
+```python
+def binarySearch(arr,find):
+    count = 0
+    start = 0
+    end = len(arr)
+
+    while True:
+        mid = (start + end) // 2
+
+        if arr[mid] == find:
+            break
+        elif arr[mid] < find:
+            start = mid -1
+            count += 1
+        else:
+            end = mid + 1
+            count += 1
+    return count
+```
