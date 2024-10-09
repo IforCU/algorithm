@@ -34,3 +34,39 @@ def binarySearch(arr,find):
             count += 1
     return count
 ```
+
+- 동적 프로그래밍은 피보나치 수열, 최소 비용 경로, 배낭, 동전 교환, LIS 등 작은 문제를 풀면서 원하는 목적지까지 도달하는 문제에 적합하다.
+  - 메모이제이션: 이미 계산한 값을 배열에 저장해서 중복 계산을 피하는 방법
+  - 테이블 방식: 작은 값부터 차례대로 최소 값을 계산해 나가면서 배열에 결과를 저장하는 방식
+- 메모이제이션(탑다운 방식)
+
+```python
+def fib(n, dp):
+    if n == 0 or n == 1:
+        return n
+    if dp[n] != -1:
+        return dp[n]
+
+    dp[n] = fib(n-1, dp) + fib(n-2, dp)
+    return dp[n]
+
+n = 10
+dp = [-1] * (n + 1)
+print(fib(n, dp))
+```
+
+- 테이블 방식(바텀업 방식)
+
+```python
+def fib(n):
+    dp = [0] * (n + 1)
+    dp[1] = 1
+
+    for i in range(2, n + 1):
+        dp[i] = dp[i-1] + dp[i-2]
+
+    return dp[n]
+
+n = 10
+print(fib(n))
+```
