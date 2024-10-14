@@ -11,6 +11,35 @@
 - 입력을 리스트로 받는 방법은 list(map(int,input().split()))
 - 입력 빠르게 받는 방법은 import sys \n input = sys.stdin.readline
 
+- heap은 특정한 규칙을 가지는 트리로, 최댓값과 최솟값을 찾는 연산을 빠르게 하기위해 고안된 완전 이진트리를 기본으로 함.
+- 파이썬에서 `heapq` 라는 라이브러리를 제공함
+
+```python
+import heapq
+
+heap = []
+heapq.heappush(heap, 50)
+heapq.heappush(heap, 10)
+heapq.heappush(heap, 20)
+
+print(heap) # [10, 50, 20]
+
+print(heapq.heappop(heap)) # 10 [20, 50]
+print(heap[0]) # 20 [20, 50]
+```
+
+- heapq을 최대 값 정렬로 바꿀려면 튜플 형태로 값을 넣어서 값이 커지면 음수 값도 커지니 우선 정렬로 바뀌는 성질을 이용하면 된다.
+
+```python
+heap_items = [1,3,5,7,9]
+
+max_heap = []
+for item in heap_items:
+  heapq.heappush(max_heap, (-item, item))
+
+print(max_heap) # [(-9, 9), (-7, 7), (-3, 3), (-1, 1), (-5, 5)]
+```
+
 ## 알고리즘
 
 - list에서 가장 빠르게 탐색하는 기본적인 방법은 이진 탐색 트리이다.
