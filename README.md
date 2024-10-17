@@ -100,3 +100,44 @@ def fib(n):
 n = 10
 print(fib(n))
 ```
+
+- 그래프 탐색은 Node, link 관계로 이루어져 있으며, 2차원 배열을 활용해 node가 연결된 값을 확인할 수 있다.
+- 다음과 같이 node를 만든다.
+
+```python
+N, M = map(int, input().split()) # M = node, N = link
+node = [[] for _ in range(N+1)]
+
+for _ in range(M):
+    x, y = map(int, input().split())
+    node[x].append(y)
+    node[y].append(x)
+print(node) # [[],[2,3],[1,3][1,2]]
+```
+
+- 이런 상황에서 node를 빠르게 탐색하는 방법은 DFS와 BFS 방식이 있다.
+- DFS 방식은 재귀를 이용해 가장 깊은 곳까지 탐색하는 방법으로 스택이 깊은 곳까지 쌓이기 때문에 조심해야된다.
+
+```python
+visited = [False] * (N+1)
+def dfs(node,v):
+    visited[v] = True
+    for i in node[v]:
+        if not visited[i]:
+            dfs(i)
+```
+
+-BFS 방식은 queue를 활용하여 얇은 곳부터 전부를 확인하면서 들어가는 탐색 방법으로 반복문을 사용한다.
+
+```python
+visited = [False] * (N+1)
+def bfs(node,v):
+    queue = deque([v])
+    visited[v] = True
+    while queue:
+        x = queue.popleft()
+        for i in node[x]:
+            if not visited[i]:
+                queue.append(i)
+                visited[i] = True
+```
