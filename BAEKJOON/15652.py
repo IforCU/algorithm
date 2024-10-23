@@ -1,6 +1,5 @@
 N, M = map(int, input().split())
 arr = [0 for _ in range(M)]
-visited = [False for _ in range(N)]
 
 def dfs(n, m, depth, start):
     if depth == m:
