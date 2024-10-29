@@ -8,10 +8,16 @@
 
 - set은 list를 조회하는 것보다 빠른 조회 성능을 가진다.
 - ord()는 아스키 코드, chr() 숫자를 다시 문자로 97 = a
-- 입력을 리스트로 받는 방법은 list(map(int,input().split()))
-- 입력 빠르게 받는 방법은 import sys \n input = sys.stdin.readline
+- 입력 빠르게 받는 방법은
 
-- heap은 특정한 규칙을 가지는 트리로, 최댓값과 최솟값을 찾는 연산을 빠르게 하기위해 고안된 완전 이진트리를 기본으로 함.
+```python
+import sys
+input = sys.stdin.readline
+maps = list(map(int,input().split())) # 입력을 리스트로 받는 방법 (int)
+```
+
+### heap은 특정한 규칙을 가지는 트리로, 최댓값과 최솟값을 찾는 연산을 빠르게 하기위해 고안된 완전 이진트리를 기본으로 함.
+
 - 파이썬에서 `heapq` 라는 라이브러리를 제공함
 
 ```python
@@ -42,7 +48,7 @@ print(max_heap) # [(-9, 9), (-7, 7), (-3, 3), (-1, 1), (-5, 5)]
 
 ## 알고리즘
 
-- list에서 가장 빠르게 탐색하는 기본적인 방법은 이진 탐색 트리이다.
+### list에서 가장 빠르게 탐색하는 기본적인 방법은 이진 탐색 트리이다.
 
 ```python
 def binarySearch(arr,find):
@@ -64,11 +70,13 @@ def binarySearch(arr,find):
     return count
 ```
 
-- 동적 프로그래밍은 피보나치 수열, 최소 비용 경로, 배낭, 동전 교환, LIS 등 작은 문제를 풀면서 원하는 목적지까지 도달하는 문제에 적합하다.
-  - 동적 프로그래밍 알고리즘을 만들때는 가장 중요한 점이 점화식을 만들어 내는 것이다. f(n) = f(n-1) + f(n-2) 등
-  - 메모이제이션: 이미 계산한 값을 배열에 저장해서 중복 계산을 피하는 방법
-  - 테이블 방식: 작은 값부터 차례대로 최소 값을 계산해 나가면서 배열에 결과를 저장하는 방식
-- 메모이제이션(탑다운 방식)
+### 동적 프로그래밍은 피보나치 수열, 최소 비용 경로, 배낭, 동전 교환, LIS 등 작은 문제를 풀면서 원하는 목적지까지 도달하는 문제에 적합하다.
+
+- 동적 프로그래밍 알고리즘을 만들때는 가장 중요한 점이 점화식을 만들어 내는 것이다. f(n) = f(n-1) + f(n-2) 등
+- 메모이제이션: 이미 계산한 값을 배열에 저장해서 중복 계산을 피하는 방법
+- 테이블 방식: 작은 값부터 차례대로 최소 값을 계산해 나가면서 배열에 결과를 저장하는 방식
+
+#### 메모이제이션(탑다운 방식)
 
 ```python
 def fib(n, dp):
@@ -85,7 +93,7 @@ dp = [-1] * (n + 1)
 print(fib(n, dp))
 ```
 
-- 테이블 방식(바텀업 방식)
+#### 테이블 방식(바텀업 방식)
 
 ```python
 def fib(n):
@@ -101,7 +109,8 @@ n = 10
 print(fib(n))
 ```
 
-- 그래프 탐색은 Node, link 관계로 이루어져 있으며, 2차원 배열을 활용해 node가 연결된 값을 확인할 수 있다.
+### 그래프 탐색은 Node, link 관계로 이루어져 있으며, 2차원 배열을 활용해 node가 연결된 값을 확인할 수 있다.
+
 - 다음과 같이 node를 만든다.
 
 ```python
@@ -115,8 +124,9 @@ for _ in range(M):
 print(node) # [[],[2,3],[1,3][1,2]]
 ```
 
-- 이런 상황에서 node를 빠르게 탐색하는 방법은 DFS와 BFS 방식이 있다.
-- DFS 방식은 재귀를 이용해 가장 깊은 곳까지 탐색하는 방법으로 스택이 깊은 곳까지 쌓이기 때문에 조심해야된다.
+### 이런 상황에서 node를 빠르게 탐색하는 방법은 DFS와 BFS 방식이 있다.
+
+#### DFS 방식은 재귀를 이용해 가장 깊은 곳까지 탐색하는 방법으로 스택이 깊은 곳까지 쌓이기 때문에 조심해야된다.
 
 ```python
 visited = [False] * (N+1)
@@ -127,7 +137,7 @@ def dfs(node,v):
             dfs(i)
 ```
 
--BFS 방식은 queue를 활용하여 얇은 곳부터 전부를 확인하면서 들어가는 탐색 방법으로 반복문을 사용한다.
+#### BFS 방식은 queue를 활용하여 얇은 곳부터 전부를 확인하면서 들어가는 탐색 방법으로 반복문을 사용한다.
 
 ```python
 visited = [False] * (N+1)
@@ -140,4 +150,42 @@ def bfs(node,v):
             if not visited[i]:
                 queue.append(i)
                 visited[i] = True
+```
+
+### 이진 Tree는 딕셔너리로 구현하는게 가장 편하고 빠르다.
+
+- **preOrder**는 root를 먼저 방문한다.
+- **inOrder**는 왼쪽 하위 트리를 방문 후 root를 방문
+- **postOrder**는 하위 트리 모두 방문 후 root를 방문
+
+```python
+tree = {} # dict 자료구조
+
+for n in range(N):
+    root, left, right = input().rstrip().split()
+    tree[root] = [left, right] # root에 left, right를 넣어 이진 트리 완성
+
+def preOrder(root): # 출력이 먼저(pre)
+    if root != '.':
+        print(root, end='')
+        preOrder(tree[root][0])
+        preOrder(tree[root][1])
+
+def inOrder(root): # 출력이 중간 (in)
+    if root != '.':
+        inOrder(tree[root][0])
+        print(root, end='')
+        inOrder(tree[root][1])
+
+def postOrder(root): # 출력이 마지막 (post)
+    if root != '.':
+        postOrder(tree[root][0])
+        postOrder(tree[root][1])
+        print(root, end='')
+
+preOrder('A')
+print()
+inOrder('A')
+print()
+postOrder('A')
 ```
