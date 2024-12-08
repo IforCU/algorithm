@@ -134,7 +134,9 @@ def dfs(node,v):
     visited[v] = True
     for i in node[v]:
         if not visited[i]:
+            visited[i] = True
             dfs(i)
+            visited[i] = False
 ```
 
 #### BFS 방식은 queue를 활용하여 얇은 곳부터 전부를 확인하면서 들어가는 탐색 방법으로 반복문을 사용한다.
