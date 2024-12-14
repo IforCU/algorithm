@@ -191,3 +191,34 @@ inOrder('A')
 print()
 postOrder('A')
 ```
+
+### 문자열 처리 방식 += VS join()
+
+- += 로 문자열을 처리하는 것 보다는 list를 이용해 join을 사용하는것이 훨씬 성능이 좋다.
+- Python에서 문자열은 불변 객체임으로 += 수행을 시작하면 다음과 같다
+  - 새로운 문자열 객체사 생성
+  - 기존 문자열의 내용을 새 객체로 복사
+  - 매번 문자열의 크기 만큼 복사 비용이 발생하므로 O(n^2)의 성능을 보여준다
+
+```Python
+import time
+n = 100000
+data = ["a"] * n
+
+start = time.time()
+result = ""
+
+for char in data:
+    result += char
+end = time.time()
+print(f"Using +=: {end - start:.5f} seconds")
+
+start = time.time()
+result = "".join(data)
+end = time.time()
+print(f"Using join(): {end - start:.5f} seconds")
+
+# 결과
+# Using +=: 0.09099 seconds -> O(n^2)
+# Using join(): 0.00051 seconds -> O(n)
+```
