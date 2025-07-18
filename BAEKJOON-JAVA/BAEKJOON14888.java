@@ -33,7 +33,7 @@ public class BAEKJOON14888 {
         System.out.println(max);
         System.out.println(min);
 
-        sc.close();
+        sc.close(); // for commit
     }
 
     public static void backtrack(int depth) {
