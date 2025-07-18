@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class BAKEJOON14626 {
+public class BAEKJOON14626 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String isbn = sc.nextLine();

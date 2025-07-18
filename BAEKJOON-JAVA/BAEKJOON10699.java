@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.time.LocalDate;
 
-public class BAKEJOON10699 {
+public class BAEKJOON10699 {
     public void solution() throws Exception{
         BufferedWriter br = new BufferedWriter(new OutputStreamWriter(System.out));
         Date today = new Date();

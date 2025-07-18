@@ -5,7 +5,7 @@ import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
 
-public class BAKEJOON15552 {
+public class BAEKJOON15552 {
     // 문제 풀이 예시로 만들고 다음과 같이 작성 후 복붙을 통해 Java 코드로 바꿈.
     public void solution() throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

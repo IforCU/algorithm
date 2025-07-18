@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class BAKEJOON26091{
+public class BAEKJOON26091{
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
 

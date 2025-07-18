@@ -2,7 +2,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-public class BAKEJOON1269 {
+public class BAEKJOON1269 {
 
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);

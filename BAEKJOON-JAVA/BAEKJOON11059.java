@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class BAKEJOON11059{
+public class BAEKJOON11059{
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
