@@ -1,3 +1,4 @@
+package BAEKJOON;
 import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;
 import java.text.SimpleDateFormat;

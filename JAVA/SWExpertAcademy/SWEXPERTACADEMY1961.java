@@ -1,3 +1,5 @@
+package SWExpertAcademy;
+
 import java.util.Scanner;
 
 public class SWEXPERTACADEMY1961 {
